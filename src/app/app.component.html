@@ -9,16 +9,15 @@
  </li>
 </ul> -->
 
-<h3>{{title}}</h3>
-<input type="text" placeholder="Search Names" [(ngModel)]="searchTerm" (input)="searchNames()" />
+<ul>
+  <input type="text" placeholder="Search Names" [(ngModel)]="searchTerm" />
+  <button (click)="searchNames()">Search</button>
+  <br><br>
+</ul>
 <ul>
   <input type="text" placeholder="Enter your Name" #name />
-  <button (click)="addname(name.value)"> Add</button>
-  <button>Search</button><br><br>
-  <li *ngFor="let item of filteredList.length > 0 ? filteredList : list">
-    {{item.username}} 
+  <button (click)="addname(name.value)">Add</button>
+  <li *ngFor="let item of searchNames()">{{item.username}}
     <button (click)="capitalName(item)">Capitalize</button>
   </li>
 </ul>
-
-  
